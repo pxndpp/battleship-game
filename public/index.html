@@ -1,0 +1,88 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Battleship</title>
+  <link rel="stylesheet" href="/style.css">
+</head>
+<body data-screen="home">
+  <header>
+    <h1>⚓ <span data-i18n="title"></span></h1>
+    <div class="tools">
+      <button id="lang" type="button"></button>
+      <button id="mute" type="button"></button>
+    </div>
+  </header>
+  <div id="conn" hidden data-i18n="reconnecting"></div>
+  <div id="toast" role="status"></div>
+
+  <main>
+    <section id="home">
+      <form id="homeForm">
+        <h2 id="homeTitle"></h2>
+        <p class="muted" data-i18n="tagline"></p>
+        <label><span data-i18n="nickname"></span>
+          <input id="name" maxlength="16" required autocomplete="nickname">
+        </label>
+        <button class="primary" id="homeBtn"></button>
+      </form>
+    </section>
+
+    <section id="waiting">
+      <h2 data-i18n="waitingTitle"></h2>
+      <p class="muted" data-i18n="shareHint"></p>
+      <input id="link" readonly>
+      <div class="row">
+        <button class="primary" id="copy" type="button"></button>
+        <button class="leave" type="button" data-i18n="leave"></button>
+      </div>
+    </section>
+
+    <section id="placing">
+      <h2 data-i18n="placeTitle"></h2>
+      <p class="muted" id="placeHint"></p>
+      <div id="pboard" class="board"></div>
+      <div id="tray"></div>
+      <div class="row" id="placeBtns">
+        <button id="rotate" type="button"></button>
+        <button id="random" type="button" data-i18n="random"></button>
+        <button id="reset" type="button" data-i18n="reset"></button>
+        <button class="primary" id="ready" type="button" data-i18n="ready"></button>
+      </div>
+      <p id="placeStatus" class="status"></p>
+      <button class="leave" type="button" data-i18n="leave"></button>
+    </section>
+
+    <section id="play">
+      <p id="turn" class="status"></p>
+      <div id="boards">
+        <div class="boardwrap target">
+          <h3 data-i18n="enemyWaters"></h3>
+          <div id="tboard" class="board"></div>
+          <div id="enemy"></div>
+        </div>
+        <div class="boardwrap own">
+          <h3 data-i18n="yourFleet"></h3>
+          <div id="oboard" class="board"></div>
+        </div>
+      </div>
+      <div id="over">
+        <h2 id="overTitle"></h2>
+        <p class="muted" id="overSub"></p>
+        <div class="row">
+          <button class="primary" id="rematch" type="button" data-i18n="rematch"></button>
+          <a class="btn" id="newRoom" href="/" data-i18n="newRoom"></a>
+        </div>
+      </div>
+      <button class="leave" id="leavePlay" type="button" data-i18n="leave"></button>
+    </section>
+
+    <section id="msg">
+      <h2 id="msgText"></h2>
+      <a class="btn primary" href="/" data-i18n="newRoom"></a>
+    </section>
+  </main>
+  <script type="module" src="/app.js"></script>
+</body>
+</html>
